@@ -94,10 +94,10 @@ async function getDate(date: string, format: string = "YYYY-MM-DD") {
 }
 
 async function main() {
-  let d = moment().add(7, 'days');
+  let d = moment().add(7, 'days'); // initial date - see https://momentjs.com/docs/
   let res: string[] = [];
-  while (d.month() < 5) {
-    if (d.day() !== 0) {
+  while (d.month() < 5) { // modify to change the end condition - see https://momentjs.com/docs/
+    if (d.day() !== 0) { // if not Sunday
       d = d.add(1, 'day');
     } else {
       const ref = await getDate(d.format("YYYY-MM-DD"));
